@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile default="true" name="Default" enabled="true" />
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="urlshortener-logic" />
+        <module name="urlshortener-data" />
+        <module name="urlshortener-api" />
+      </profile>
+    </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="assess-data" target="1.8" />
+      <module name="assess-logic" target="1.8" />
+      <module name="assess-parent" target="1.8" />
+    </bytecodeTargetLevel>
+  </component>
+  <component name="JavacSettings">
+    <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="assess-data" options="-parameters" />
+      <module name="assess-logic" options="-parameters" />
+      <module name="urlshortener-api" options="-parameters" />
+      <module name="urlshortener-data" options="-parameters" />
+      <module name="urlshortener-logic" options="-parameters" />
+    </option>
+  </component>
+</project>
