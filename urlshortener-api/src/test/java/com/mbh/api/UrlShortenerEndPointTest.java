@@ -1,4 +1,4 @@
-package com.mbh;
+package com.mbh.api;
 
 import com.mbh.entity.ResourceUrlEntity;
 import com.mbh.repository.ResourceUrlRepository;
