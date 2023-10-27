@@ -5,6 +5,7 @@ import com.mbh.service.UrlShortenerService;
 import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiParam;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
@@ -18,7 +19,7 @@ public class UrlShortenerEndPoint {
     @Autowired
     private UrlShortenerService urlShortenerService;
 
-    @PostMapping("/shorten")
+    @PostMapping(value = "/shorten" , consumes = MediaType.TEXT_PLAIN_VALUE)
     @ApiOperation("Shorten URL")
     public ResponseEntity<String> shortenUrl(@ApiParam(value = "url" , required = true) @RequestBody String url){
         // Retrieve the short URL
@@ -33,7 +34,7 @@ public class UrlShortenerEndPoint {
         return ResponseEntity.created(location).body(encodedUrl);
     }
 
-    @GetMapping("/retrieve/{shortUrl}")
+    @GetMapping(value = "/retrieve/{shortUrl}" , produces = MediaType.TEXT_PLAIN_VALUE)
     @ApiOperation("Retrieve original URL")
     public ResponseEntity<String> retrieveOriginalUrl(@ApiParam(value = "shortURL" , required = true) @PathVariable String shortUrl){
         try {
