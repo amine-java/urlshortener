@@ -18,21 +18,9 @@ import springfox.documentation.swagger2.annotations.EnableSwagger2;
 @Import(value = DataConfig.class)
 @EnableSwagger2
 public class SpringBootStarterApi {
-	
-	@Value("${ush.cors.allow}")
-	private String corsUrlAllowed;
 
 	public static void main(String[] args) {
 		SpringApplication.run(SpringBootStarterApi.class, args);
-	}
-
-	@Bean
-	public WebMvcConfigurer corsConfigurer() {
-		return new WebMvcConfigurer() {
-			public void addCorsMappings(CorsRegistry registry) {
-				registry.addMapping("/**").allowedOrigins(corsUrlAllowed);
-			}
-		};
 	}
 
 	@Bean
