@@ -9,6 +9,7 @@ import org.junit.jupiter.api.TestInstance;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.http.MediaType;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
 
@@ -64,7 +65,9 @@ public class UrlShortenerEndPointTest {
     void shortenOriginalUrl() throws Exception {
 
         mockMvc
-                .perform(MockMvcRequestBuilders.post(API_SHORTEN_URL_ENDPOINT ).content(ORIGINAL_URL))//
+                .perform(MockMvcRequestBuilders.post(API_SHORTEN_URL_ENDPOINT)//
+                        .content(ORIGINAL_URL)//
+                        .contentType(MediaType.TEXT_PLAIN_VALUE))//
                 .andDo(print())//
                 .andExpect(status().isCreated())//
                 .andExpect(content().string(containsString(SHORT_URL)));//
