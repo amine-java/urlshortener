@@ -3,7 +3,9 @@ An URL shortener is a website that reduces the length of your URL, in order to m
 
 
 # Installation 
-This is a SpringBoot application developed with JDK11 and uses an in-memory h2 database
-The application provides a Swagger UI in order to perform API calls. the swagger UI is reacheable through localhost:80808/swagger-ui.html.
+This is a SpringBoot application developed with JDK11 and uses an in-memory h2 database  
+
+The application provides a Swagger UI in order to perform API calls. the swagger UI is reacheable through localhost:80808/swagger-ui.html.  
+
 After building the application, you can execute the jar using the following command: java -jar urlshortener-api-0.0.1-SNAPSHOT
 
