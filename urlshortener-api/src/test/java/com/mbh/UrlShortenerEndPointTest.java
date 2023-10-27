@@ -27,9 +27,12 @@ public class UrlShortenerEndPointTest {
 
     private static final String SHORT_URL = "1XwzLB";
 
-    private static final String API_RETRIEVE_URL_ENDPOINT = "/api/shorten/";
+    private static final String UKNOWN_SHORT_URL = "2ZwzLB";
+
+    private static final String API_RETRIEVE_URL_ENDPOINT = "/api/retrieve/";
 
     private static final String API_SHORTEN_URL_ENDPOINT = "/api/shorten";
+
     @Autowired
     private ResourceUrlRepository repository;
 
@@ -37,7 +40,7 @@ public class UrlShortenerEndPointTest {
     private MockMvc mockMvc;
 
     @BeforeAll
-    void  setUp(){
+    void setUp(){
         ResourceUrlEntity entity = new ResourceUrlEntity();
         entity.setUrl(ORIGINAL_URL);
         entity.setShortUrl(SHORT_URL);
@@ -65,5 +68,14 @@ public class UrlShortenerEndPointTest {
                 .andDo(print())//
                 .andExpect(status().isCreated())//
                 .andExpect(content().string(containsString(SHORT_URL)));//
+    }
+
+    @Test
+    @DisplayName("Given an unknown URL in DB, when the retrieve operation is called, then an http 404 is returned")
+    void retrieveUnknownUrl() throws Exception {
+        mockMvc
+                .perform(get(API_RETRIEVE_URL_ENDPOINT + UKNOWN_SHORT_URL))//
+                .andDo(print())//
+                .andExpect(status().isNotFound());//
     }
 }

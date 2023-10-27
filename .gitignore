@@ -27,27 +27,3 @@ hs_err_pid*
 
 .metadata
 
-
-# See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
-
-# dependencies
-expert-ai-frontend/node_modules
-expert-ai-frontend/.pnp
-expert-ai-frontend.pnp.js
-
-# testing
-expert-ai-frontend/coverage
-
-# production
-expert-ai-frontend/build
-
-# misc
-expert-ai-frontend/.DS_Store
-expert-ai-frontend/.env.local
-expert-ai-frontend/.env.development.local
-expert-ai-frontend/.env.test.local
-expert-ai-frontend/.env.production.local
-
-expert-ai-frontend/npm-debug.log*
-expert-ai-frontend/yarn-debug.log*
-expert-ai-frontend/yarn-error.log*

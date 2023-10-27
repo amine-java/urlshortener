@@ -3,12 +3,15 @@ package com.mbh.service;
 import com.mbh.entity.ResourceUrlEntity;
 import com.mbh.exception.UrlNotFoundException;
 import com.mbh.repository.ResourceUrlRepository;
+import com.mbh.encoder.UrlEncoder;
+import lombok.AllArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.Optional;
 
 @Service
+@AllArgsConstructor
 public class UrlShortenerService {
 
     @Autowired
@@ -41,7 +44,7 @@ public class UrlShortenerService {
             return url.get().getShortUrl();
         }
         String urlEncoded = urlEncoder.encode(plainUrl);
-        repository.save(new ResourceUrlEntity(plainUrl , urlEncoded));
+        repository.save(new ResourceUrlEntity(plainUrl , urlEncoded , urlEncoder.strategyName()));
         return urlEncoded;
     }
 

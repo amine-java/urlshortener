@@ -19,9 +19,11 @@ public class ResourceUrlEntity {
     private Long id;
     private String url;
     private String shortUrl;
+    private String strategy;
 
-    public ResourceUrlEntity(String plainUrl, String urlEncoded) {
+    public ResourceUrlEntity(String plainUrl, String urlEncoded , String strategy) {
         this.url = plainUrl;
         this.shortUrl = urlEncoded;
+        this.strategy = strategy;
     }
 }
