@@ -9,5 +9,5 @@ The application provides a Swagger UI in order to perform API calls. the swagger
 
 After building the application, you can execute the jar using the following command: java -jar urlshortener-api-0.0.1-SNAPSHOT  
 
-Once the application is up and running, you can browse to [the swagger api ](https://localhost:8080/swagger-ui.html) 
+Once the application is up and running, you can browse to [the swagger api ]( http://localhost:8080/swagger-ui.html ) 
 
