@@ -7,7 +7,7 @@ This is a SpringBoot application developed with JDK11 and uses an in-memory h2 d
 
 The application provides a Swagger UI in order to perform API calls. the swagger UI is reacheable through localhost:8080/swagger-ui.html.  
 
-After building the application, you can execute the jar using the following command: java -jar urlshortener-api-0.0.1-SNAPSHOT  
+After building the application, you can execute the jar using the following command: java -jar urlshortener-api-0.0.1-SNAPSHOT.jar  
 
 Once the application is up and running, you can browse to [the swagger api ]( http://localhost:8080/swagger-ui.html )   
 
