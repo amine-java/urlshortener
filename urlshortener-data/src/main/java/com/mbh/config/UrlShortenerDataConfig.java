@@ -9,5 +9,5 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 @EnableJpaRepositories("com.mbh.repository")
 @EntityScan("com.mbh.entity")
 @EnableTransactionManagement
-public class DataConfig {
+public class UrlShortenerDataConfig {
 }
