@@ -1,5 +1,7 @@
 package com.mbh.entity;
 
+import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -7,10 +9,13 @@ import lombok.Setter;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import java.time.LocalDate;
 
 @Entity
 @Getter
 @Setter
+@Builder
+@AllArgsConstructor
 @NoArgsConstructor
 public class ResourceUrlEntity {
 
@@ -20,10 +25,7 @@ public class ResourceUrlEntity {
     private String url;
     private String shortUrl;
     private String strategy;
+    private Long nbClick = 0L;
+    private LocalDate lastAccess;
 
-    public ResourceUrlEntity(String plainUrl, String urlEncoded , String strategy) {
-        this.url = plainUrl;
-        this.shortUrl = urlEncoded;
-        this.strategy = strategy;
-    }
 }

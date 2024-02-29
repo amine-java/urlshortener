@@ -1,5 +1,6 @@
 package com.mbh.api;
 
+import com.mbh.dto.ResourceUrlDTO;
 import com.mbh.exception.UrlNotFoundException;
 import com.mbh.service.UrlShortenerService;
 import io.swagger.annotations.ApiOperation;
@@ -16,22 +17,26 @@ import java.net.URI;
 @RequestMapping("/api")
 public class UrlShortenerEndPoint {
 
-    @Autowired
-    private UrlShortenerService urlShortenerService;
+    private final UrlShortenerService urlShortenerService;
 
-    @PostMapping(value = "/shorten" , consumes = MediaType.TEXT_PLAIN_VALUE)
+    @Autowired
+    public UrlShortenerEndPoint(UrlShortenerService urlShortenerService){
+        this.urlShortenerService = urlShortenerService;
+    }
+
+    @PostMapping(value = "/shorten" , consumes = MediaType.TEXT_PLAIN_VALUE , produces = MediaType.APPLICATION_JSON_VALUE)
     @ApiOperation("Shorten URL")
-    public ResponseEntity<String> shortenUrl(@ApiParam(value = "url" , required = true) @RequestBody String url){
+    public ResponseEntity<ResourceUrlDTO> shortenUrl(@ApiParam(value = "url" , required = true) @RequestBody String url){
         // Retrieve the short URL
-        String encodedUrl = urlShortenerService.encodeUrl(url);
+        ResourceUrlDTO resourceUrlDTO = urlShortenerService.encodeUrl(url);
         // Create location
         URI location = ServletUriComponentsBuilder
                 .fromCurrentContextPath()
                 .path("/api/retrieve/{encodedUrl}")
-                .buildAndExpand(encodedUrl)
+                .buildAndExpand(resourceUrlDTO.getShortUrl())
                 .toUri();
         // Send Response
-        return ResponseEntity.created(location).body(encodedUrl);
+        return ResponseEntity.created(location).body(resourceUrlDTO);
     }
 
     @GetMapping(value = "/retrieve/{shortUrl}" , produces = MediaType.TEXT_PLAIN_VALUE)

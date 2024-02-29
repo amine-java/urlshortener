@@ -1,0 +1,30 @@
+<ng-container *ngIf="loading">
+  <div class="spinner-border text-secondary" role="status">
+    <span class="sr-only">Redirecting</span>
+  </div>
+</ng-container>
+
+<ng-container *ngIf="!loading">
+  <section id="urlbox">
+    <h1>Enter your long URL</h1>
+    <form (ngSubmit)="onSubmit()">
+      <div id="formurl">
+        <input type="text" name="u" placeholder="Enter the link here" [(ngModel)]="urlToShorten">
+        <div id="formbutton">
+          <input type="submit" value="Shorten URL">
+        </div>
+      </div>
+      <div *ngIf="this.invalidUrl" class="alert alert-danger errorpanel" role="alert">
+        The URL you entered is <a href="#" class="alert-link">not valid</a>. Please try again.
+      </div>
+    </form>
+    <p class="boxtextcenter">Use this URL Shortener to create a simplified url<br>
+      Note that URLS entered without a protocol will be automatically set to https and that because we want you to be safe while browsing :)
+    </p>
+  </section>
+
+  <!-- Show summary result if generated -->
+  <app-summary *ngIf="showResult" [resultShortenUrl]="shortenUrlDTO"></app-summary>
+
+</ng-container>
+

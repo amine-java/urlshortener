@@ -1,5 +1,6 @@
 package com.mbh;
 
+import com.mbh.config.SecurityConfiguration;
 import com.mbh.config.UrlShortenerDataConfig;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -12,7 +13,7 @@ import springfox.documentation.spring.web.plugins.Docket;
 import springfox.documentation.swagger2.annotations.EnableSwagger2;
 
 @SpringBootApplication
-@Import(value = UrlShortenerDataConfig.class)
+@Import(value = {UrlShortenerDataConfig.class , SecurityConfiguration.class})
 @EnableSwagger2
 public class SpringBootStarterApi {
 

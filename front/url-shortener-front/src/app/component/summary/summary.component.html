@@ -1,0 +1,32 @@
+<section id="urlbox">
+  <br><br>
+  <div id="formurl" class="mw450">
+    <input id="shortenurl" type="text" value="{{resultShortenUrl?.shortUrl}}" onclick="if (!window.__cfRLUnblockHandlers) return false; this.select();">
+    <div id="formbutton">
+      <input type="button" data-clipboard-target="#shortenurl" class="copy" value="Copy URL" (click)="this.copy()">
+    </div>
+  </div>
+
+  <div id="formurlsummary" class="mw450dblock">
+    <p class="boxtextleft">
+      Long URL entered was: <a href="{{resultShortenUrl?.url}}" target="_blank">{{resultShortenUrl?.url}}</a><br><br>
+    </p>
+    <div>
+      <button *ngIf="resultShortenUrl?.nbClick != 0" type="button" class="btn btn-secondary">
+        <span class="sr-only">This link was clicked</span>
+        <span class="badge badge-secondary">{{resultShortenUrl?.nbClick}} </span>
+        <span class="sr-only">time(s)</span>
+      </button>
+      <button *ngIf="resultShortenUrl?.nbClick == 0" type="button" class="btn btn-secondary">
+        <span class="badge badge-light">This link has not been clicked yet</span>
+      </button>
+    </div>
+    <br>
+    <div *ngIf="resultShortenUrl?.lastAccess">
+      <button type="button" class="btn btn-secondary">
+        <span class="badge badge-secondary">{{resultShortenUrl?.lastAccess}}</span>
+        <span class="sr-only">was the last time it was clicked</span>
+      </button>
+    </div>
+  </div>
+</section>
