@@ -18,3 +18,18 @@ The in-memory h2 database can be accessed through localhost:8080/h2-console. Use
 
 To launch the front end, execute ```npm install``` and then launch ```ng serve```
 
+## Docker  
+
+You can launch the app using Docker. 
+
+### For the back-end: 
+Build 
+``` docker build -t url-shortener-backend-app . ```
+Run
+``` docker run -p 8080:8080 url-shortener-backend-app ```
+
+### For the front-end: 
+Build 
+``` docker build -t url-shortener-app . ```
+Run
+``` docker run -p 4200:80 url-shortener-app ```
