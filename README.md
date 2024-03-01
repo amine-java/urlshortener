@@ -7,6 +7,8 @@ This is a SpringBoot application developed with JDK11 and uses an in-memory h2 d
 
 The application provides a Swagger UI in order to perform API calls. the swagger UI is reacheable through localhost:8080/swagger-ui.html.  
 
+<i><b>The back-end should be launched on port 8080, and the front-end should be launched on port 4200</b></i>
+
 ## Build and install
 You can build the app by executing the ```mvn clean install```, and then execute the api jar using the following command: ```java -jar urlshortener-api-0.0.1.jar```  
 
