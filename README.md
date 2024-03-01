@@ -25,11 +25,11 @@ You can launch the app using Docker.
 ### For the back-end: 
 Build <br/>
 ``` docker build -t url-shortener-backend-app . ```
-Run <br/>
+<br/> Run <br/>
 ``` docker run -p 8080:8080 url-shortener-backend-app ```
 
 ### For the front-end: 
 Build <br/>
 ``` docker build -t url-shortener-app . ```
-Run <br/>
+<br/> Run <br/>
 ``` docker run -p 4200:80 url-shortener-app ```
