@@ -28,4 +28,7 @@ public class ResourceUrlEntity {
     private Long nbClick = 0L;
     private LocalDate lastAccess;
 
+    public void incrementNbClick(){
+        this.nbClick++;
+    }
 }

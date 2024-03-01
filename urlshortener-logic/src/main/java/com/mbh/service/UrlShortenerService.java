@@ -37,13 +37,16 @@ public class UrlShortenerService {
      * @throws UrlNotFoundException
      */
     public String decodeUrl(String shortUrl) throws UrlNotFoundException {
+        // Fetch original URL
         var resourceUrlEntity = repository//
                 .findByShortUrl(shortUrl)//
                 .orElseThrow(UrlNotFoundException::new);//
 
-        resourceUrlEntity.setNbClick(resourceUrlEntity.getNbClick() + 1);
+        // Update statistics
+        resourceUrlEntity.incrementNbClick();
         resourceUrlEntity.setLastAccess(LocalDate.now());
         repository.save(resourceUrlEntity);
+
         return resourceUrlEntity.getUrl();
     }
 

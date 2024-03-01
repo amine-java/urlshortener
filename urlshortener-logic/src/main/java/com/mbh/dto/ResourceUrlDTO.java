@@ -19,36 +19,4 @@ public class ResourceUrlDTO {
     private String shortUrl;
     private Long nbClick;
     private LocalDate lastAccess;
-
-    public String getUrl() {
-        return url;
-    }
-
-    public void setUrl(String url) {
-        this.url = url;
-    }
-
-    public String getShortUrl() {
-        return shortUrl;
-    }
-
-    public void setShortUrl(String shortUrl) {
-        this.shortUrl = shortUrl;
-    }
-
-    public Long getNbClick() {
-        return nbClick;
-    }
-
-    public void setNbClick(Long nbClick) {
-        this.nbClick = nbClick;
-    }
-
-    public LocalDate getLastAccess() {
-        return lastAccess;
-    }
-
-    public void setLastAccess(LocalDate lastAccess) {
-        this.lastAccess = lastAccess;
-    }
 }
