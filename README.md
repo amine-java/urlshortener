@@ -23,13 +23,13 @@ To launch the front end, execute ```npm install``` and then launch ```ng serve``
 You can launch the app using Docker. 
 
 ### For the back-end: 
-Build 
+Build <br/>
 ``` docker build -t url-shortener-backend-app . ```
-Run
+Run <br/>
 ``` docker run -p 8080:8080 url-shortener-backend-app ```
 
 ### For the front-end: 
-Build 
+Build <br/>
 ``` docker build -t url-shortener-app . ```
-Run
+Run <br/>
 ``` docker run -p 4200:80 url-shortener-app ```
