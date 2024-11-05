@@ -25,11 +25,11 @@ jobs:
             docker login -u $username -p $password 
             
     - name: Build the Docker image
-      run: docker build -t url-shortener-backend-app:latest . 
+      run: docker build -t aminejava/urlshortener:latest . 
 
     - name: print the docker images
       id: print-docker-image
       run: docker images
     - name: push the docker image
       id: push-docker-image
-      run: docker push ${{secrets.DOCKERHUB_USERNAME}}/url-shortener-backend-app:latest
+      run: docker push aminejava/urlshortener:latest
