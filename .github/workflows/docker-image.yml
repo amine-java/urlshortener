@@ -40,4 +40,4 @@ jobs:
       run: docker images
     - name: push the docker image
       id: push-docker-image
-      run: docker push aminejava/urlshortener:${{env.PROJECT_VERSION}
+      run: docker push aminejava/urlshortener:${{env.PROJECT_VERSION}}
