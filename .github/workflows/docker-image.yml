@@ -16,5 +16,17 @@ jobs:
     - uses: actions/checkout@v4
     - name: Run maven
       run: mvn clean install
+    - name: Connnect to DockerHub
+      id: docker-hub
+      env:
+        username: ${{secrets.DOCKERHUB_USERNAME}}
+        password: ${{secrets.DOCKERHUB_PASSWORD}}
+      run: |
+            docker login -u $username -p $password 
+            
     - name: Build the Docker image
-      run: docker build -t url-shortener-backend-app . 
+      run: docker build -t url-shortener-backend-app:latest . 
+
+    - name: push the docker image
+      id: push-docker-image
+      run: docker push ${{secrets.DOCKERHUB_USERNAME}}/url-shortener-backend-app:latest
