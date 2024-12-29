@@ -1,4 +1,4 @@
-name: Docker Image CI
+name: Docker Image CI FRONT
 
 on:
   push:
@@ -22,7 +22,7 @@ jobs:
             docker login -u $username -p $password 
             
     - name: Build the Docker image
-      run: docker build -t aminejava/urlshortener-front ./front/url-shortener-front 
+      run: cd front/url-shortener-front && docker build -t aminejava/urlshortener-front .
 
     - name: print the docker images
       id: print-docker-image
