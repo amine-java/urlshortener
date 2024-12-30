@@ -33,11 +33,11 @@ jobs:
             docker login -u $username -p $password 
             
     - name: Build the Docker image
-      run: docker build -t aminejava/urlshortener:${{env.PROJECT_VERSION}}-RC2 . 
+      run: docker build -t aminejava/urlshortener:${{env.PROJECT_VERSION}}-RC3 . 
 
     - name: print the docker images
       id: print-docker-image
       run: docker images
     - name: push the docker image
       id: push-docker-image
-      run: docker push aminejava/urlshortener:${{env.PROJECT_VERSION}}-RC2
+      run: docker push aminejava/urlshortener:${{env.PROJECT_VERSION}}-RC3

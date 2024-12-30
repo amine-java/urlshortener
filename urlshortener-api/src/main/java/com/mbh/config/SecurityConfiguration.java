@@ -15,10 +15,14 @@ public class SecurityConfiguration {
 
     @Bean
     public WebMvcConfigurer corsConfigurer() {
+		System.out.println("Allowing origins from" + originAllowed);
         return new WebMvcConfigurer() {
             @Override
             public void addCorsMappings(CorsRegistry registry) {
-                registry.addMapping("/**").allowedOrigins("*");
+                registry.addMapping("/**")
+				.allowedOrigins("*")
+				.allowedMethods("GET", "POST", "PUT", "DELETE", "OPTIONS")
+                .allowedHeaders("Content-Type", "Authorization");
             }
         };
     }
