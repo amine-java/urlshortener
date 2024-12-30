@@ -3,5 +3,5 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  apiUri: "url-shortener-backend-service"
+  apiUri: "url-shortener-backend-service:8085"
 };
