@@ -25,7 +25,10 @@ pipeline {
                 // Only for pull request builds (CHANGE_ID is the PR number)
                 if (env.CHANGE_ID) {
                     env.BUILD_RESULT = currentBuild.currentResult
-                    withCredentials([string(credentialsId: 'github-token', variable: 'GITHUB_TOKEN')]) {
+                    // GitHub App credential used by this multibranch job: the password is an installation token
+                    withCredentials([usernamePassword(credentialsId: '3d5d38c8-3156-405b-845b-a8f98ad84021',
+                                                      usernameVariable: 'GITHUB_APP',
+                                                      passwordVariable: 'GITHUB_TOKEN')]) {
                         sh '''
                             curl -sS --fail -X POST \
                               -H "Authorization: Bearer $GITHUB_TOKEN" \
